@@ -1,12 +1,12 @@
 from sys import argv
 from bottle import route, default_app, template, run, static_file, error
 from lxml import etree
-import os
+
 @route('/')
 def index():
     doc=etree.parse("sevilla.xml")
     muni=doc.findall("municipio")
-    key=os.environ["key"]
+    key=ENV["key"]
     return template("index.tpl", mun=muni,key=key)
 @route('/<cod>/<name>')
 def temp(cod,name):
