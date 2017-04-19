@@ -10,7 +10,7 @@ def index():
 def temp(cod,name):
 	doc=etree.parse("http://www.aemet.es/xml/municipios/localidad_"+cod+".xml")
 	p=doc.find("prediccion/dia")
-	max=p.find("temperatura").find("maxima").text
+	max=p.find("temperatura").find(maxima").text
 	min=p.find("temperatura").find("minima").text
 	return template("temp.tpl",name=name,max=max,min=min)
 
